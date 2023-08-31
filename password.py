@@ -1,11 +1,18 @@
 import random
-import string
-
-def generate_password(length):
-    characters = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(characters) for _ in range(length))
-    return password
-
-length = int(input("Enter the desired password length: "))
-password = generate_password(length)
-print("Generated Password:", password)
+uppercase_letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+lowercase_letters=uppercase_letters.lower()
+digits="0123456789"
+symbols="[]{}(),;:.-_/\\?+*#"
+upper,lower,nums,syms=True,True,True,True
+all=""
+if upper:
+    all+=uppercase_letters
+if lower:
+    all+=lowercase_letters
+if nums:
+    all+=digits
+if syms:
+    all+=symbols
+length=int(input("enter length:"))
+password="".join(random.sample(all,length))
+print(password)
